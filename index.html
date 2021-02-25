@@ -556,26 +556,34 @@ tpj;
 </section>
 <!-- end: Revolution Slider-->
 
-<div  class="background-fixed mobilesmall" style="padding:none; background-image:url(images/home/bg2.jpg);">
-	<div id="medium-widget1" data-animate="fadeInUp"></div>
-	<script src="https://medium-widget.pixelpoint.io/widget.js"></script>
-	<script>MediumWidget.Init({renderTo: '#medium-widget1', params: {"resource":"https://medium.com/yealthy","postsPerLine":1,"limit":2,"picture":"big","fields":["description","author","claps","publishAt"],"ratio":"landscape"}})</script>
-</div>
-<div class="background-fixed mobilebig" style="padding:none; background-image:url(images/home/bg2.jpg);">
-	<div id="medium-widget2" data-animate="fadeInUp"></div>
-	<script src="https://medium-widget.pixelpoint.io/widget.js"></script>
-	<script>MediumWidget.Init({renderTo: '#medium-widget2', params: {"resource":"https://medium.com/yealthy","postsPerLine":2,"limit":4,"picture":"big","fields":["description","author","claps","publishAt"],"ratio":"landscape"}})</script>
-</div>
-<div class="background-fixed desktopsmall" style="padding:none; background-image:url(images/home/bg2.jpg);">
-	<div id="medium-widget3" data-animate="fadeInUp"></div>
-	<script src="https://medium-widget.pixelpoint.io/widget.js"></script>
-	<script>MediumWidget.Init({renderTo: '#medium-widget3', params: {"resource":"https://medium.com/yealthy","postsPerLine":4,"limit":4,"picture":"big","fields":["description","author","claps","publishAt"],"ratio":"landscape"}})</script>
-</div>
 <div class="background-fixed desktopbig" style="padding:none; background-image:url(images/home/bg2.jpg);">
-	<div id="medium-widget4" data-animate="fadeInUp"></div>
+	<div id="medium-widget" data-animate="fadeInUp"></div>
 	<script src="https://medium-widget.pixelpoint.io/widget.js"></script>
-	<script>MediumWidget.Init({renderTo: '#medium-widget4', params: {"resource":"https://medium.com/yealthy","postsPerLine":6,"limit":6,"picture":"big","fields":["description","author","claps","publishAt"],"ratio":"landscape"}})</script>
+	<script id="medium-info"></script>
 </div>
+
+<script>
+	window.addEventListener('load', (event) => {
+  	setTimeout(showMedium(), 100);
+});
+function showMedium() {
+	w = window.innerWidth
+	if (w > 1500) {
+		document.getElementById("medium-info").innerHTML =
+		"MediumWidget.Init({renderTo: '#medium-widget', params: {\"resource\":\"https://medium.com/yealthy\",\"postsPerLine\":6,\"limit\":6,\"picture\":\"big\",\"fields\":[\"description\",\"author\",\"claps\",\"publishAt\"],\"ratio\":\"landscape\"}})"
+	} else if (w <= 1500 && w > 900) {
+		document.getElementById("medium-info").innerHTML =
+		"MediumWidget.Init({renderTo: '#medium-widget', params: {\"resource\":\"https://medium.com/yealthy\",\"postsPerLine\":4,\"limit\":4,\"picture\":\"big\",\"fields\":[\"description\",\"author\",\"claps\",\"publishAt\"],\"ratio\":\"landscape\"}})"
+	} else if (w <= 900 && w > 600) {
+		document.getElementById("medium-info").innerHTML =
+		"MediumWidget.Init({renderTo: '#medium-widget', params: {\"resource\":\"https://medium.com/yealthy\",\"postsPerLine\":2,\"limit\":4,\"picture\":\"big\",\"fields\":[\"description\",\"author\",\"claps\",\"publishAt\"],\"ratio\":\"landscape\"}})"
+	} else {
+		document.getElementById("medium-info").innerHTML =
+		"MediumWidget.Init({renderTo: '#medium-widget', params: {\"resource\":\"https://medium.com/yealthy\",\"postsPerLine\":1,\"limit\":2,\"picture\":\"big\",\"fields\":[\"description\",\"author\",\"claps\",\"publishAt\"],\"ratio\":\"landscape\"}})"
+	}
+}
+</script>
+
 <style type = "text/css">
 h1 {
 	letter-spacing: 0px;
@@ -605,62 +613,6 @@ h1 {
 	background-color: rgba(255,255,255,0.8);
 	border: 2px solid white;
 	border-radius: 25px;
-}
-@media only screen and (max-width: 600px) {
-	.mobilesmall {
-		display: block;
-	}
-	.mobilebig {
-		display: none;
-	}
-	.desktopsmall {
-		display: none;
-	}
-	.desktopbig {
-		display: none;
-	}
-}
-@media only screen and (max-width: 900px) and (min-width: 601px) {
-	.mobilesmall {
-		display: none;
-	}
-	.mobilebig {
-		display: block;
-	}
-	.desktopsmall {
-		display: none;
-	}
-	.desktopbig {
-		display: none;
-	}
-}
-@media only screen and (max-width: 1500px) and (min-width: 900px) {
-	.mobilesmall {
-		display: none;
-	}
-	.mobilebig {
-		display: none;
-	}
-	.desktopsmall {
-		display: block;
-	}
-	.desktopbig {
-		display: none;
-	}
-}
-@media only screen and (min-width: 1501px) {
-	.mobilesmall {
-		display: none;
-	}
-	.mobilebig {
-		display: none;
-	}
-	.desktopsmall {
-		display: none;
-	}
-	.desktopbig {
-		display: block;
-	}
 }
 </style>
 <!-- end: SECTION 2 -->
